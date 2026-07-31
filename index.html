@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taller R.B.M Mahindra Diesel | Especialistas Mahindra & Maxus — San Joaquín</title>
+  <meta name="description" content="Taller especialista en Mahindra y Maxus con más de 10 años de experiencia. Servicio técnico diesel en San Joaquín, Salesianos 159." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:    #CC1717;
+      --red-dk: #9E1010;
+      --dark:   #0D0D0D;
+      --dark2:  #161616;
+      --dark3:  #1F1F1F;
+      --gray:   #2A2A2A;
+      --light:  #F0F0F0;
+      --white:  #FFFFFF;
+      --gold:   #C8972A;
+      --font-h: 'Outfit', sans-serif;
+      --font-b: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-b);
+      background: var(--dark);
+      color: var(--light);
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ────────────────────────────── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 5%;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
+    }
+
+    header.scrolled {
+      background: rgba(13,13,13,0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 1px 0 rgba(204,23,23,0.25);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo svg { width: 52px; height: 52px; flex-shrink: 0; }
+
+    .logo-text { font-family: var(--font-h); line-height: 1.15; }
+    .logo-text .t1 { font-size: 1rem; font-weight: 800; color: var(--white); letter-spacing: 0.04em; }
+    .logo-text .t2 { font-size: 0.68rem; font-weight: 500; color: var(--red); letter-spacing: 0.12em; text-transform: uppercase; }
+
+    nav { display: flex; align-items: center; gap: 2.2rem; }
+    nav a {
+      font-family: var(--font-h);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: rgba(240,240,240,0.78);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--red); }
+
+    .btn-nav {
+      background: var(--red);
+      color: var(--white) !important;
+      padding: 9px 20px;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+    .btn-nav:hover { background: var(--red-dk) !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: rgba(13,13,13,0.97);
+      backdrop-filter: blur(20px);
+      padding: 1.5rem 5% 2rem;
+      z-index: 999;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-h);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--light);
+      text-decoration: none;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* ── HERO ──────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 120px 5% 80px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(105deg, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.65) 55%, rgba(13,13,13,0.35) 100%),
+        url('https://images.unsplash.com/photo-1625047509168-a7026f36de04?w=1800&q=80') center/cover no-repeat;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(204,23,23,0.15);
+      border: 1px solid rgba(204,23,23,0.45);
+      color: #FF6B6B;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 1.6rem;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--red);
+      border-radius: 50%;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(1.4); }
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 680px; }
+
+    .hero h1 {
+      font-family: var(--font-h);
+      font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.4rem;
+    }
+    .hero h1 .red { color: var(--red); }
+    .hero h1 .line2 { display: block; }
+
+    .hero p {
+      font-size: clamp(1rem, 1.8vw, 1.18rem);
+      color: rgba(240,240,240,0.72);
+      line-height: 1.75;
+      max-width: 520px;
+      margin-bottom: 2.4rem;
+    }
+
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--red);
+      color: var(--white);
+      font-family: var(--font-h);
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 15px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--red-dk); transform: translateY(-2px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--white);
+      font-family: var(--font-h);
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 14px 30px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.25);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--red); background: rgba(204,23,23,0.08); }
+
+    .hero-stats {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 4rem;
+      flex-wrap: wrap;
+    }
+    .stat { border-left: 3px solid var(--red); padding-left: 1rem; }
+    .stat .num { font-family: var(--font-h); font-size: 2.2rem; font-weight: 800; color: var(--white); }
+    .stat .lbl { font-size: 0.8rem; color: rgba(240,240,240,0.55); text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* ── MARCAS ────────────────────────────── */
+    .marcas {
+      background: var(--dark2);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 2.5rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .marcas-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: rgba(240,240,240,0.35);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .marca-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 22px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.03);
+    }
+    .marca-chip svg { width: 28px; height: 28px; }
+    .marca-chip span {
+      font-family: var(--font-h);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── SECCIONES GENÉRICAS ──────────────── */
+    section { padding: 90px 5%; }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--red);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-family: var(--font-h);
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      font-size: 1.02rem;
+      color: rgba(240,240,240,0.58);
+      max-width: 520px;
+      line-height: 1.75;
+    }
+
+    /* ── SERVICIOS ─────────────────────────── */
+    .servicios { background: var(--dark); }
+    .servicios-header { text-align: center; margin-bottom: 3.5rem; }
+    .servicios-header .section-sub { margin: 0 auto; }
+
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .serv-card {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.3s;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .serv-card.visible { opacity: 1; transform: translateY(0); transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.3s, box-shadow 0.3s; }
+    .serv-card:hover { border-color: var(--red); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(204,23,23,0.12); }
+
+    .serv-icon {
+      width: 52px; height: 52px;
+      background: rgba(204,23,23,0.12);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+    .serv-icon svg { width: 26px; height: 26px; stroke: var(--red); fill: none; stroke-width: 1.8; }
+
+    .serv-card h3 {
+      font-family: var(--font-h);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+    .serv-card p { font-size: 0.9rem; color: rgba(240,240,240,0.55); line-height: 1.65; }
+
+    /* ── NOSOTROS ──────────────────────────── */
+    .nosotros {
+      background: var(--dark2);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .nosotros-img {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .nosotros-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .nosotros-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(204,23,23,0.3);
+      border-radius: 16px;
+      pointer-events: none;
+    }
+    .nosotros-badge {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: var(--red);
+      color: var(--white);
+      font-family: var(--font-h);
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .nosotros-badge span { display: block; font-size: 1.8rem; }
+
+    .nosotros-content .pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .pillar {
+      background: var(--dark3);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 1.1rem 1.2rem;
+    }
+    .pillar .pill-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.4rem;
+    }
+    .pillar h4 {
+      font-family: var(--font-h);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+    .pillar p { font-size: 0.8rem; color: rgba(240,240,240,0.5); }
+
+    /* ── GALERÍA ───────────────────────────── */
+    .galeria { background: var(--dark); }
+    .galeria-header { text-align: center; margin-bottom: 3rem; }
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 1rem;
+    }
+    .gal-item {
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--dark3);
+      position: relative;
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    .gal-item.visible { opacity: 1; transform: scale(1); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .gal-item:first-child { grid-column: span 2; aspect-ratio: 16/9; }
+    .gal-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+    .gal-item:hover img { transform: scale(1.05); }
+    .gal-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(13,13,13,0);
+      transition: background 0.3s;
+    }
+    .gal-item:hover .gal-overlay { background: rgba(204,23,23,0.12); }
+
+    /* ── HORARIO ───────────────────────────── */
+    .horario {
+      background: var(--dark2);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .schedule-box {
+      background: var(--dark3);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .schedule-box .sh-head {
+      background: var(--red);
+      padding: 1rem 1.5rem;
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .schedule-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.9rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .schedule-row:last-child { border-bottom: none; }
+    .schedule-row .day { font-size: 0.92rem; font-weight: 500; }
+    .schedule-row .time { font-family: var(--font-h); font-size: 0.9rem; font-weight: 600; color: var(--red); }
+    .schedule-row.closed .time { color: rgba(240,240,240,0.3); font-weight: 400; }
+
+    .map-box {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+      aspect-ratio: 4/3;
+    }
+    .map-box iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .address-info { margin-top: 1.5rem; }
+    .addr-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 1rem;
+    }
+    .addr-icon {
+      width: 38px; height: 38px;
+      background: rgba(204,23,23,0.12);
+      border-radius: 8px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .addr-icon svg { width: 18px; height: 18px; stroke: var(--red); fill: none; stroke-width: 2; }
+    .addr-text .lbl { font-size: 0.72rem; color: rgba(240,240,240,0.4); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2px; }
+    .addr-text .val { font-size: 0.95rem; font-weight: 500; }
+
+    /* ── CTA ───────────────────────────────── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--red-dk) 0%, #7A0A0A 100%);
+      padding: 90px 5%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><circle cx="30" cy="30" r="1" fill="white" opacity="0.04"/></svg>') 0 0 / 60px 60px;
+    }
+    .cta-section h2 {
+      font-family: var(--font-h);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .cta-section p {
+      font-size: 1.05rem;
+      opacity: 0.82;
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      position: relative;
+    }
+    .cta-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; position: relative; }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      color: var(--red-dk);
+      font-family: var(--font-h);
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 15px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-white:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.3); }
+    .btn-outline-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--white);
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 30px;
+      border-radius: 8px;
+      border: 2px solid rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+    /* ── CONTACTO ──────────────────────────── */
+    .contacto { background: var(--dark); }
+    .contacto-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .form-box {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+    .form-title {
+      font-family: var(--font-h);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1.8rem;
+    }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgba(240,240,240,0.5);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--dark3);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: var(--light);
+      font-family: var(--font-b);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--red); }
+    .form-group select option { background: var(--dark3); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .btn-form {
+      width: 100%;
+      background: var(--red);
+      color: var(--white);
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background 0.2s, transform 0.2s;
+      margin-top: 0.4rem;
+    }
+    .btn-form:hover { background: var(--red-dk); transform: translateY(-2px); }
+
+    .contact-info { padding-top: 1rem; }
+    .contact-info .section-sub { margin-bottom: 2.5rem; }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px; height: 44px;
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      text-decoration: none;
+      color: rgba(240,240,240,0.6);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .social-link:hover { border-color: var(--red); color: var(--red); background: rgba(204,23,23,0.08); }
+    .social-link svg { width: 20px; height: 20px; }
+
+    /* ── FOOTER ────────────────────────────── */
+    footer {
+      background: var(--dark2);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 3rem 5%;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .footer-links a {
+      font-size: 0.85rem;
+      color: rgba(240,240,240,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--red); }
+    .footer-copy {
+      font-size: 0.8rem;
+      color: rgba(240,240,240,0.25);
+      text-align: center;
+      width: 100%;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 1.5rem;
+      margin-top: 1rem;
+    }
+    .footer-copy a { color: var(--red); text-decoration: none; }
+
+    /* ── WHATSAPP FLOTANTE ─────────────────── */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .wa-label {
+      background: rgba(13,13,13,0.9);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 8px;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+    }
+    .wa-float:hover .wa-label { opacity: 1; transform: translateX(0); }
+    .wa-btn {
+      width: 60px; height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+    }
+    .wa-btn:hover { transform: scale(1.08); box-shadow: 0 10px 32px rgba(37,211,102,0.45); }
+    .wa-btn svg { width: 30px; height: 30px; }
+
+    /* ── ANIMACIONES ───────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ────────────────────────── */
+    @media (max-width: 900px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .nosotros, .horario, .contacto-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .galeria-grid { grid-template-columns: repeat(2, 1fr); }
+      .galeria-grid .gal-item:first-child { grid-column: span 2; }
+      .nosotros-content .pillars { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 580px) {
+      section { padding: 60px 5%; }
+      .hero-stats { gap: 1.5rem; }
+      .galeria-grid { grid-template-columns: 1fr; }
+      .galeria-grid .gal-item:first-child { grid-column: span 1; }
+      .nosotros-content .pillars { grid-template-columns: 1fr; }
+      .marcas { gap: 1.2rem; }
+      .hero-btns { flex-direction: column; }
+      .cta-btns { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="main-header">
+    <a href="#" class="logo">
+      <!-- Logo SVG RBM -->
+      <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="52" height="52" rx="10" fill="#CC1717"/>
+        <path d="M8 14h10c3.3 0 5.5 2 5.5 5 0 2-1 3.5-2.8 4.3L25 30H20l-3.5-6H13v6H8V14zm5 4v4h4.5c1 0 1.8-.7 1.8-2s-.8-2-1.8-2H13z" fill="white"/>
+        <path d="M27 14h10c3 0 5 1.8 5 4.5 0 1.8-.9 3.2-2.2 3.8 1.5.6 2.5 2 2.5 3.9 0 2.8-2.1 4.8-5.2 4.8H27V14zm5 6h4.2c1 0 1.5-.6 1.5-1.5S37.2 17 36.2 17H32v3zm0 6.5h4.5c1.1 0 1.8-.7 1.8-1.8s-.7-1.7-1.8-1.7H32v3.5z" fill="white"/>
+        <text x="8" y="46" font-family="Outfit,sans-serif" font-size="7" font-weight="700" fill="rgba(255,255,255,0.55)" letter-spacing="2">DIESEL</text>
+      </svg>
+      <div class="logo-text">
+        <div class="t1">TALLER R.B.M</div>
+        <div class="t2">Mahindra · Maxus</div>
+      </div>
+    </a>
+
+    <nav>
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#galeria">Galería</a>
+      <a href="#horario">Horario</a>
+      <a href="#contacto" class="btn-nav">Cotizar</a>
+    </nav>
+
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- MENÚ MÓVIL -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#servicios" onclick="closeMobile()">Servicios</a>
+    <a href="#nosotros" onclick="closeMobile()">Nosotros</a>
+    <a href="#galeria" onclick="closeMobile()">Galería</a>
+    <a href="#horario" onclick="closeMobile()">Horario</a>
+    <a href="#contacto" onclick="closeMobile()">Cotizar</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Especialistas certificados</div>
+      <h1>
+        El taller <span class="red">N°1</span>
+        <span class="line2">en Mahindra & Maxus</span>
+        en Santiago
+      </h1>
+      <p>Más de <strong>10 años</strong> diagnosticando y reparando vehículos Mahindra y Maxus. Servicio técnico especializado, repuestos originales y garantía de trabajo en San Joaquín.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/56965108721?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20para%20mi%20veh%C3%ADculo" class="btn-primary" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.122 1.532 5.855L0 24l6.335-1.503A11.962 11.962 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.942 0-3.76-.524-5.323-1.437l-.383-.228-3.762.893.937-3.657-.25-.397A9.958 9.958 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Cotizar por WhatsApp
+        </a>
+        <a href="#servicios" class="btn-secondary">
+          Ver servicios
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="num">+10</div><div class="lbl">Años de experiencia</div></div>
+        <div class="stat"><div class="num">2</div><div class="lbl">Marcas especializadas</div></div>
+        <div class="stat"><div class="num">100%</div><div class="lbl">Garantía de trabajo</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARCAS -->
+  <div class="marcas">
+    <span class="marcas-label">Especialistas en</span>
+    <!-- Mahindra -->
+    <div class="marca-chip" style="gap:14px;">
+      <!-- Logo Mahindra: M estilizada roja -->
+      <svg width="36" height="30" viewBox="0 0 36 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 30V4L9 14.5V4L18 30L27 4V14.5L36 4V30H31V18L27 30H18L9 18V30H0Z" fill="#CC1717"/>
+      </svg>
+      <span style="font-family:'Outfit',sans-serif;font-weight:800;letter-spacing:0.08em;font-size:1rem;color:white;">MAHINDRA</span>
+    </div>
+    <!-- Maxus -->
+    <div class="marca-chip" style="gap:14px;">
+      <!-- Logo Maxus: hexágono + texto -->
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="14,1 26,7.5 26,20.5 14,27 2,20.5 2,7.5" fill="#1B3FA0"/>
+        <path d="M8 19V9l3 5 3-5 3 5 3-5v10" stroke="white" stroke-width="1.8" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <span style="font-family:'Outfit',sans-serif;font-weight:800;letter-spacing:0.08em;font-size:1rem;color:white;">MAXUS</span>
+    </div>
+    <span class="marcas-label">· Motores Diesel · Gasolina · Diésel 4×4</span>
+  </div>
+
+  <!-- SERVICIOS -->
+  <section class="servicios" id="servicios">
+    <div class="servicios-header fade-up">
+      <span class="section-tag">Lo que hacemos</span>
+      <h2 class="section-title">Servicios especializados<br>para tu vehículo</h2>
+      <p class="section-sub">Diagnóstico y reparación con herramientas de última generación y técnicos formados en Mahindra y Maxus.</p>
+    </div>
+    <div class="servicios-grid">
+      <div class="serv-card">
+        <div class="serv-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/><path d="M3.6 9h2M18.4 9h2M12 3.6v2M12 18.4v2"/></svg>
+        </div>
+        <h3>Diagnóstico Electrónico</h3>
+        <p>Lectura de códigos de falla con scanner especializado para Mahindra y Maxus. Detección precisa de problemas.</p>
+      </div>
+      <div class="serv-card">
+        <div class="serv-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Motor Diesel</h3>
+        <p>Reparación completa de motores diesel: culata, pistones, inyectores, bomba de combustible y más.</p>
+      </div>
+      <div class="serv-card">
+        <div class="serv-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>
+        </div>
+        <h3>Sistema de Frenos</h3>
+        <p>Revisión y cambio de discos, pastillas, tambores, cilindros y líquido de frenos en todos los modelos.</p>
+      </div>
+      <div class="serv-card">
+        <div class="serv-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+        </div>
+        <h3>Mantención Preventiva</h3>
+        <p>Cambio de aceite, filtros, correa de distribución, bujías y revisión general según plan de mantenimiento.</p>
+      </div>
+      <div class="serv-card">
+        <div class="serv-icon">
+          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>Transmisión y Caja</h3>
+        <p>Reparación de cajas de cambio manuales y automáticas, embragues y sistemas de transmisión 4×4.</p>
+      </div>
+      <div class="serv-card">
+        <div class="serv-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Sistema Eléctrico</h3>
+        <p>Diagnóstico y reparación de alternadores, baterías, centralitas y todo el sistema eléctrico del vehículo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section class="nosotros" id="nosotros">
+    <div class="nosotros-img fade-up">
+      <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=900&q=80" alt="Taller R.B.M Mahindra Diesel — Interior del taller" loading="lazy" />
+      <div class="nosotros-badge"><span>+10</span>Años de<br>experiencia</div>
+    </div>
+    <div class="nosotros-content fade-up">
+      <span class="section-tag">Quiénes somos</span>
+      <h2 class="section-title">Somos el taller<br>especialista en Mahindra</h2>
+      <p class="section-sub">En <strong>Taller R.B.M</strong> nos especializamos exclusivamente en Mahindra y Maxus. Más de una década de experiencia nos respalda como referentes técnicos en Santiago.</p>
+
+      <!-- El Colorín -->
+      <div style="display:flex;align-items:center;gap:14px;background:rgba(204,23,23,0.08);border:1px solid rgba(204,23,23,0.25);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.5rem;">
+        <div style="width:44px;height:44px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.4rem;">🔴</div>
+        <div>
+          <div style="font-family:var(--font-h);font-weight:700;font-size:0.95rem;color:var(--white);">El Colorín — Técnico jefe</div>
+          <div style="font-size:0.82rem;color:rgba(240,240,240,0.55);margin-top:2px;">El alma del taller. Más de 10 años reparando Mahindra, siempre de rojo. Lo reconocerás apenas entres.</div>
+        </div>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pill-icon">🔧</div>
+          <h4>Técnicos especializados</h4>
+          <p>Formados directamente en las marcas que atendemos.</p>
+        </div>
+        <div class="pillar">
+          <div class="pill-icon">✅</div>
+          <h4>Garantía de trabajo</h4>
+          <p>Respaldamos cada reparación con garantía por escrito.</p>
+        </div>
+        <div class="pillar">
+          <div class="pill-icon">🔩</div>
+          <h4>Repuestos originales</h4>
+          <p>Trabajamos solo con repuestos de calidad certificada.</p>
+        </div>
+        <div class="pillar">
+          <div class="pill-icon">📍</div>
+          <h4>Fácil acceso</h4>
+          <p>Ubicados en Salesianos 159, San Joaquín, Santiago.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section class="galeria" id="galeria">
+    <div class="galeria-header fade-up">
+      <span class="section-tag">Nuestro trabajo</span>
+      <h2 class="section-title">Lo que hacemos cada día</h2>
+      <p class="section-sub">Reparaciones reales, resultados garantizados. Sigue nuestro trabajo en TikTok.</p>
+    </div>
+    <div class="galeria-grid">
+      <div class="gal-item">
+        <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=1200&q=80" alt="Motor Mahindra en reparación" loading="lazy" />
+        <div class="gal-overlay"></div>
+      </div>
+      <div class="gal-item">
+        <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&q=80" alt="Diagnóstico electrónico" loading="lazy" />
+        <div class="gal-overlay"></div>
+      </div>
+      <div class="gal-item">
+        <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=600&q=80" alt="Sistema de frenos" loading="lazy" />
+        <div class="gal-overlay"></div>
+      </div>
+      <div class="gal-item">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Piezas motor diesel" loading="lazy" />
+        <div class="gal-overlay"></div>
+      </div>
+      <div class="gal-item">
+        <img src="https://images.unsplash.com/photo-1504222490345-c075b7bfbe9c?w=600&q=80" alt="Caja de cambios" loading="lazy" />
+        <div class="gal-overlay"></div>
+      </div>
+      <div class="gal-item">
+        <img src="https://images.unsplash.com/photo-1562519819-016930ada9e4?w=600&q=80" alt="Sistema eléctrico automotriz" loading="lazy" />
+        <div class="gal-overlay"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HORARIO -->
+  <section class="horario" id="horario">
+    <div class="fade-up">
+      <span class="section-tag">Dónde encontrarnos</span>
+      <h2 class="section-title">Visítanos en<br>San Joaquín</h2>
+
+      <div class="address-info" style="margin-bottom:2rem;">
+        <div class="addr-item">
+          <div class="addr-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="addr-text">
+            <div class="lbl">Dirección</div>
+            <div class="val">Salesianos 159, San Joaquín, Santiago</div>
+          </div>
+        </div>
+        <div class="addr-item">
+          <div class="addr-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l1.27-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="addr-text">
+            <div class="lbl">WhatsApp</div>
+            <div class="val">+56 9 6510 8721</div>
+          </div>
+        </div>
+        <div class="addr-item">
+          <div class="addr-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="addr-text">
+            <div class="lbl">Horario de atención</div>
+            <div class="val">Lun – Vie: 9:30 a 18:30 hrs</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-box">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3327.5!2d-70.659!3d-33.507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c520c8c4b5f9%3A0x1!2sSalesianos%20159%2C%20San%20Joaqu%C3%ADn%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1690000000000!5m2!1ses!2scl"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación Taller R.B.M Mahindra Diesel">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="fade-up">
+      <span class="section-tag">Horarios</span>
+      <h2 class="section-title" style="margin-bottom:1.5rem;">Atención<br>semanal</h2>
+
+      <div class="schedule-box">
+        <div class="sh-head">Días y Horarios</div>
+        <div class="schedule-row">
+          <span class="day">Lunes</span>
+          <span class="time">9:30 – 18:30</span>
+        </div>
+        <div class="schedule-row">
+          <span class="day">Martes</span>
+          <span class="time">9:30 – 18:30</span>
+        </div>
+        <div class="schedule-row">
+          <span class="day">Miércoles</span>
+          <span class="time">9:30 – 18:30</span>
+        </div>
+        <div class="schedule-row">
+          <span class="day">Jueves</span>
+          <span class="time">9:30 – 18:30</span>
+        </div>
+        <div class="schedule-row">
+          <span class="day">Viernes</span>
+          <span class="time">9:30 – 18:30</span>
+        </div>
+        <div class="schedule-row closed">
+          <span class="day">Sábado</span>
+          <span class="time">Consultar</span>
+        </div>
+        <div class="schedule-row closed">
+          <span class="day">Domingo</span>
+          <span class="time">Cerrado</span>
+        </div>
+      </div>
+
+      <a href="https://wa.me/56965108721?text=Hola%2C%20quiero%20agendar%20una%20hora%20en%20el%20taller" class="btn-primary" style="margin-top:1.5rem; display:inline-flex;" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.122 1.532 5.855L0 24l6.335-1.503A11.962 11.962 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.942 0-3.76-.524-5.323-1.437l-.383-.228-3.762.893.937-3.657-.25-.397A9.958 9.958 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Agendar hora
+      </a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section style="background:var(--dark2);padding:90px 5%;" id="testimonios">
+    <div style="text-align:center;margin-bottom:3rem;" class="fade-up">
+      <span class="section-tag">Lo que dicen los clientes</span>
+      <h2 class="section-title">Opiniones reales<br>de nuestra comunidad</h2>
+      <p class="section-sub" style="margin:0 auto;">Más de 1.000 seguidores en TikTok no mienten. Aquí lo que nos dicen nuestros clientes.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;">
+
+      <div class="serv-card" style="border-left:3px solid var(--red);padding:1.6rem 1.8rem;">
+        <div style="display:flex;gap:4px;margin-bottom:0.8rem;">
+          <span style="color:#F5A623;font-size:1rem;">★★★★★</span>
+        </div>
+        <p style="font-size:0.95rem;color:rgba(240,240,240,0.82);line-height:1.7;font-style:italic;margin-bottom:1rem;">"El mejor taller para Mahindra en Santiago, el colorín sabe todo de estos autos, lo recomiendo 100%"</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:36px;height:36px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:700;font-size:0.9rem;">C</div>
+          <div>
+            <div style="font-family:var(--font-h);font-weight:600;font-size:0.88rem;">Cliente TikTok</div>
+            <div style="font-size:0.75rem;color:rgba(240,240,240,0.4);">@comentario en TikTok</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="serv-card" style="border-left:3px solid var(--red);padding:1.6rem 1.8rem;">
+        <div style="display:flex;gap:4px;margin-bottom:0.8rem;">
+          <span style="color:#F5A623;font-size:1rem;">★★★★★</span>
+        </div>
+        <p style="font-size:0.95rem;color:rgba(240,240,240,0.82);line-height:1.7;font-style:italic;margin-bottom:1rem;">"Llevé mi Mahindra Pik Up que nadie sabía arreglar y en R.B.M lo dejaron como nuevo. Muy profesionales 🔧"</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:36px;height:36px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:700;font-size:0.9rem;">M</div>
+          <div>
+            <div style="font-family:var(--font-h);font-weight:600;font-size:0.88rem;">Cliente TikTok</div>
+            <div style="font-size:0.75rem;color:rgba(240,240,240,0.4);">@comentario en TikTok</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="serv-card" style="border-left:3px solid var(--red);padding:1.6rem 1.8rem;">
+        <div style="display:flex;gap:4px;margin-bottom:0.8rem;">
+          <span style="color:#F5A623;font-size:1rem;">★★★★★</span>
+        </div>
+        <p style="font-size:0.95rem;color:rgba(240,240,240,0.82);line-height:1.7;font-style:italic;margin-bottom:1rem;">"Excelente atención, precios justos y trabajo garantizado. No llevo mi Maxus a otro lado 💯"</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:36px;height:36px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:700;font-size:0.9rem;">R</div>
+          <div>
+            <div style="font-family:var(--font-h);font-weight:600;font-size:0.88rem;">Cliente TikTok</div>
+            <div style="font-size:0.75rem;color:rgba(240,240,240,0.4);">@comentario en TikTok</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="serv-card" style="border-left:3px solid var(--red);padding:1.6rem 1.8rem;">
+        <div style="display:flex;gap:4px;margin-bottom:0.8rem;">
+          <span style="color:#F5A623;font-size:1rem;">★★★★★</span>
+        </div>
+        <p style="font-size:0.95rem;color:rgba(240,240,240,0.82);line-height:1.7;font-style:italic;margin-bottom:1rem;">"Buen trato, honestidad y conocimiento real de la marca. El Colorín explica todo lo que le hizo al auto 👏"</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:36px;height:36px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:700;font-size:0.9rem;">P</div>
+          <div>
+            <div style="font-family:var(--font-h);font-weight:600;font-size:0.88rem;">Cliente TikTok</div>
+            <div style="font-size:0.75rem;color:rgba(240,240,240,0.4);">@comentario en TikTok</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="https://www.tiktok.com/@tallerrbmmahindra" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;color:rgba(240,240,240,0.6);font-size:0.88rem;text-decoration:none;border:1px solid rgba(255,255,255,0.1);padding:10px 20px;border-radius:8px;transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--white)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='rgba(240,240,240,0.6)'">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34l.04-8.87a8.27 8.27 0 0 0 4.83 1.54V4.52a4.85 4.85 0 0 1-1.1-.17z"/></svg>
+        Ver todos los comentarios en TikTok @tallerrbmmahindra
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>¿Tu Mahindra o Maxus necesita atención?</h2>
+    <p>Escríbenos ahora y cotiza sin compromiso. Atendemos en el mismo día según disponibilidad.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/56965108721?text=Hola%2C%20necesito%20servicio%20para%20mi%20veh%C3%ADculo%20Mahindra%2FMaxus" class="btn-white" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#9E1010"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.122 1.532 5.855L0 24l6.335-1.503A11.962 11.962 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.942 0-3.76-.524-5.323-1.437l-.383-.228-3.762.893.937-3.657-.25-.397A9.958 9.958 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Contactar por WhatsApp
+      </a>
+      <a href="#contacto" class="btn-outline-white">Enviar mensaje</a>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contacto" id="contacto">
+    <div class="contacto-inner">
+      <div class="contact-info fade-up">
+        <span class="section-tag">Contáctanos</span>
+        <h2 class="section-title">Cuéntanos sobre<br>tu vehículo</h2>
+        <p class="section-sub">Déjanos tus datos y te contactamos en menos de 24 horas con una cotización sin compromiso.</p>
+
+        <div style="margin-top:2rem;">
+          <div class="addr-item">
+            <div class="addr-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l1.27-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="addr-text">
+              <div class="lbl">WhatsApp directo</div>
+              <div class="val">+56 9 6510 8721</div>
+            </div>
+          </div>
+          <div class="addr-item">
+            <div class="addr-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="addr-text">
+              <div class="lbl">Dirección</div>
+              <div class="val">Salesianos 159, San Joaquín</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="https://www.tiktok.com/@tallerrbmmahindra" class="social-link" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34l.04-8.87a8.27 8.27 0 0 0 4.83 1.54V4.52a4.85 4.85 0 0 1-1.1-.17z"/></svg>
+          </a>
+          <a href="https://wa.me/56965108721" class="social-link" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.122 1.532 5.855L0 24l6.335-1.503A11.962 11.962 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.942 0-3.76-.524-5.323-1.437l-.383-.228-3.762.893.937-3.657-.25-.397A9.958 9.958 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="form-box fade-up">
+        <div class="form-title">Solicitar cotización</div>
+        <form id="contact-form">
+          <div class="form-group">
+            <label>Tu nombre</label>
+            <input type="text" id="f-nombre" placeholder="Ej: Carlos Pérez" required />
+          </div>
+          <div class="form-group">
+            <label>Teléfono</label>
+            <input type="tel" id="f-tel" placeholder="+56 9 XXXX XXXX" required />
+          </div>
+          <div class="form-group">
+            <label>Marca del vehículo</label>
+            <select id="f-marca">
+              <option value="Mahindra">Mahindra</option>
+              <option value="Maxus">Maxus</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Modelo y año</label>
+            <input type="text" id="f-modelo" placeholder="Ej: Mahindra XUV300 2022" />
+          </div>
+          <div class="form-group">
+            <label>Descripción del problema</label>
+            <textarea id="f-mensaje" placeholder="Describe el problema o el servicio que necesitas..."></textarea>
+          </div>
+          <button type="button" class="btn-form" onclick="enviarWA()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.122 1.532 5.855L0 24l6.335-1.503A11.962 11.962 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.942 0-3.76-.524-5.323-1.437l-.383-.228-3.762.893.937-3.657-.25-.397A9.958 9.958 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <a href="#inicio" class="logo">
+        <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="52" height="52" rx="10" fill="#CC1717"/>
+          <path d="M8 14h10c3.3 0 5.5 2 5.5 5 0 2-1 3.5-2.8 4.3L25 30H20l-3.5-6H13v6H8V14zm5 4v4h4.5c1 0 1.8-.7 1.8-2s-.8-2-1.8-2H13z" fill="white"/>
+          <path d="M27 14h10c3 0 5 1.8 5 4.5 0 1.8-.9 3.2-2.2 3.8 1.5.6 2.5 2 2.5 3.9 0 2.8-2.1 4.8-5.2 4.8H27V14zm5 6h4.2c1 0 1.5-.6 1.5-1.5S37.2 17 36.2 17H32v3zm0 6.5h4.5c1.1 0 1.8-.7 1.8-1.8s-.7-1.7-1.8-1.7H32v3.5z" fill="white"/>
+          <text x="8" y="46" font-family="Outfit,sans-serif" font-size="7" font-weight="700" fill="rgba(255,255,255,0.55)" letter-spacing="2">DIESEL</text>
+        </svg>
+        <div class="logo-text">
+          <div class="t1">TALLER R.B.M</div>
+          <div class="t2">Mahindra · Maxus</div>
+        </div>
+      </a>
+      <div class="footer-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#galeria">Galería</a>
+        <a href="#horario">Horario</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      © 2025 Taller R.B.M Mahindra Diesel · Salesianos 159, San Joaquín · Sitio web desarrollado por <a href="https://pcfra.github.io/fgf-digital/" target="_blank" rel="noopener">FGF Digital</a>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOTANTE -->
+  <div class="wa-float">
+    <span class="wa-label">¡Escríbenos ahora!</span>
+    <a href="https://wa.me/56965108721?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quiero%20consultar%20sobre%20mi%20veh%C3%ADculo" class="wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.122 1.532 5.855L0 24l6.335-1.503A11.962 11.962 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.942 0-3.76-.524-5.323-1.437l-.383-.228-3.762.893.937-3.657-.25-.397A9.958 9.958 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    </a>
+  </div>
+
+  <script>
+    // Header scroll
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // Menú móvil
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+    function closeMobile() { mobileMenu.classList.remove('open'); }
+
+    // IntersectionObserver fade-up
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up, .serv-card, .gal-item').forEach((el, i) => {
+      if (el.classList.contains('serv-card') || el.classList.contains('gal-item')) {
+        el.style.transitionDelay = (i % 3) * 0.1 + 's';
+      }
+      observer.observe(el);
+    });
+
+    // Formulario → WhatsApp
+    function enviarWA() {
+      const nombre  = document.getElementById('f-nombre').value.trim();
+      const tel     = document.getElementById('f-tel').value.trim();
+      const marca   = document.getElementById('f-marca').value;
+      const modelo  = document.getElementById('f-modelo').value.trim();
+      const mensaje = document.getElementById('f-mensaje').value.trim();
+
+      if (!nombre || !tel) {
+        alert('Por favor ingresa tu nombre y teléfono.');
+        return;
+      }
+
+      const texto = `Hola Taller R.B.M 👋\n\n*Nombre:* ${nombre}\n*Teléfono:* ${tel}\n*Marca:* ${marca}\n*Modelo:* ${modelo || 'No especificado'}\n*Problema:* ${mensaje || 'Sin descripción'}\n\n_Mensaje enviado desde el sitio web._`;
+      window.open('https://wa.me/56965108721?text=' + encodeURIComponent(texto), '_blank');
+    }
+  </script>
+</body>
+</html>
